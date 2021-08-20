@@ -25,11 +25,15 @@ class ConditionerAdvancedTest {
     }
 
     @Test
-    public void setCurrentTempTest() {
+    public void setCurrentTemperatureTest() {
         ConditionerAdvanced conditionerAdvanced = new ConditionerAdvanced();
-        conditionerAdvanced.setCurrentTemperature(10);
-        conditionerAdvanced.setMaxTemperature(100);
         conditionerAdvanced.setMinTemperature(0);
+        conditionerAdvanced.setMaxTemperature(100);
+        conditionerAdvanced.setCurrentTemperature(10);
+
+        assertEquals(0, conditionerAdvanced.getMinTemperature());
+        assertEquals(100, conditionerAdvanced.getMaxTemperature());
+        assertEquals(10, conditionerAdvanced.getCurrentTemperature());
 
         conditionerAdvanced.setCurrentTemperature(101);
         assertEquals(10, conditionerAdvanced.getCurrentTemperature());
@@ -37,7 +41,7 @@ class ConditionerAdvancedTest {
         conditionerAdvanced.setCurrentTemperature(-10);
         assertEquals(10, conditionerAdvanced.getCurrentTemperature());
 
-        conditionerAdvanced.setCurrentTemperature(15);
-        assertEquals(15, conditionerAdvanced.getCurrentTemperature());
+        conditionerAdvanced.setCurrentTemperature(20);
+        assertEquals(20, conditionerAdvanced.getCurrentTemperature());
     }
 }
